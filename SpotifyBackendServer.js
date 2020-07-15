@@ -23,11 +23,13 @@ const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 
 app.get('/spotify-variables', cors(corsOptions), (req, res) => {
-    let requester = req.get('origin')
+    let requester = req.header('Origin')
+    console.log(`requester`, requester)
+    
     if (requester === 'https://spk2dc.github.io/') {
         res.json({ CLIENT_ID: CLIENT_ID, CLIENT_SECRET: CLIENT_SECRET, requester: requester })
     } else {
-        res.json({ haha: 'nice try', requester: requester, req: req })
+        res.json({ haha: 'nice try', requester: requester })
     }
 })
 
