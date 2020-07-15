@@ -27,7 +27,7 @@ app.get('/spotify-variables', cors(corsOptions), (req, res) => {
     if (requester === 'https://spk2dc.github.io/') {
         res.json({ CLIENT_ID: CLIENT_ID, CLIENT_SECRET: CLIENT_SECRET, requester: requester })
     } else {
-        res.json({ haha: 'nice try', requester: requester })
+        res.json({ haha: 'nice try', requester: req })
     }
 })
 
