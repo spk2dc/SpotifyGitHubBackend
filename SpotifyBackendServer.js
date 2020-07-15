@@ -24,7 +24,11 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET
 
 app.get('/spotify-variables', (req, res) => {
     let requester = req.hostname
-    res.json({ CLIENT_ID: CLIENT_ID, CLIENT_SECRET: CLIENT_SECRET, requester: requester })
+    if (requester === 'https://spk2dc.github.io/SpotifyTrackFilter/') {
+        res.json({ CLIENT_ID: CLIENT_ID, CLIENT_SECRET: CLIENT_SECRET, requester: requester })
+    } else {
+        res.json({ haha: 'nice try' })
+    }
 })
 
 //___________________
