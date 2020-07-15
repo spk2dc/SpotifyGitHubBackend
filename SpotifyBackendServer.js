@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3000;
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 
-app.get('/spotify-variables', (req, res) => {
+app.get('/spotify-variables', cors(corsOptions), (req, res) => {
     let requester = req.hostname
     if (requester === 'https://spk2dc.github.io/SpotifyTrackFilter/') {
         res.json({ CLIENT_ID: CLIENT_ID, CLIENT_SECRET: CLIENT_SECRET, requester: requester })
