@@ -3,7 +3,16 @@
 //___________________
 const express = require('express');
 const app = express();
+const cors = require('cors')
 require('dotenv').config()
+
+
+let corsOptions = {
+    origin: 'https://spk2dc.github.io/SpotifyTrackFilter/',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions))
+
 //___________________
 //Port
 //___________________
